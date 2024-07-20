@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
         {
         _rb.AddForce(Vector2.up * _jumpForce , ForceMode2D.Impulse);   
             _isGrounded = false;
+            _animator.SetBool("IsJumping", true);
+           
         }
       
             }
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             _isGrounded = true;
+            _animator.SetBool("IsJumping", false);
         }
        
     }
